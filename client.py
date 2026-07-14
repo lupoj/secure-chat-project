@@ -3,15 +3,19 @@ import threading
 
 def initialize_client():
     host = "127.0.0.1"
-    port = 12345
+    port = 54321
 
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
         client.connect((host, port))
         print("Connected to the server at", host, "on port", port)
-    except:
-        print("Failed to connect to the server at", host, "on port", port)
+
+        client.settimeout(None)
+        client.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+
+    except Exception as connect_error:
+        print("Error:", connect_error)
         return
     
     username = input("Enter your username: ")
@@ -19,8 +23,6 @@ def initialize_client():
     initial_message = username + " has joined the chat."
     client.send(initial_message.encode())
 
-    client_thread = threading.Thread(target=receive_messages, args=(client,))
-    client_thread.start()
 
     while True:
 
@@ -32,12 +34,15 @@ def initialize_client():
             if message.strip():
                 final_message = username + ": " + message + "\n"
                 client.send(final_message.encode())
-        except:
+        except Exception as e:
             print("Error occurred while sending message.")
             break
 
-        client.close()
-        print("Disconnected from the server.")
+    client_thread = threading.Thread(target=receive_messages, args=(client,))
+    client_thread.start()
+
+    client.close()
+    print("Disconnected from the server.")
 
 def receive_messages(client):
     while True:
