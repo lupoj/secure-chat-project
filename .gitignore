@@ -1,0 +1,17 @@
+# Python virtual environment
+.venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Database files
+*.db
+
+# Security files
+*.pem
+*.key
+*.crt
+
+# Environment variables
+.env
