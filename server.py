@@ -55,3 +55,6 @@ def current_client(connection, address):
             clients.remove(connection)
         connection.close()
         print("Connection with client", address, "closed.")
+
+if __name__ == "__main__":
+    initialize_server()
