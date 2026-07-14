@@ -5,7 +5,7 @@ clients = []
 
 def initialize_server():
     host = "127.0.0.1"
-    port = 12345
+    port = 54321
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -22,39 +22,42 @@ def initialize_server():
         new_thread = threading.Thread(target=current_client, args=(connection, address))
         new_thread.start()
 
-def current_client(connection, address):
+def current_client(conn, address):
     print("Handling client", address)
 
-    connection.send("Welcome to the server!".encode())
+    conn.settimeout(None)
+
+    conn.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
 
     while True:
         try:
-            message = connection.recv(1024)
+            message = conn.recv(1024).decode()
 
             if not message:
                 print("Client", address, "disconnected from the server.")
                 break
 
-            decoded_data = message.decode()
-            print("Received message from", address, ":", decoded_data.strip())
+            print("Received message from", address, ":", message)
 
             # Broadcast the message to all other clients
             for i in clients:
-                if i != connection:
+                if i != conn:
                     try:
                         i.send(message)
-                    except:
+                    except Exception as send_err:
+                        print(f"Failed to send to a client, removing them: {send_err}")
                         if i in clients:
                             clients.remove(i)
-        
-        except:
+                        
+
+        except Exception as e:
             print("Error occurred with client", address)
             break
 
-        if connection in clients:
-            clients.remove(connection)
-        connection.close()
-        print("Connection with client", address, "closed.")
+    if conn in clients:
+        clients.remove(conn)
+    conn.close()
+    print("Connection with client", address, "closed.")
 
 if __name__ == "__main__":
     initialize_server()
