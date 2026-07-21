@@ -105,10 +105,20 @@ def current_client(conn, address):
                 send_json_packets(conn, {"status": "ERROR", "message": f"Permission Denied: Role [{role.upper()}] cannot perform '{action}'."})
                 continue
 
-            print(f"[{role.upper()}] {username}: {client_message}")
+            elif action == "view_users":
+                send_json_packets(conn, {
+                    "status": "INFO",
+                    "message": f"Connected users count: {len(clients)}"
+                })
+            
+            elif action == "shutdown":
+                print(f"[ADMIN ACTION] Server shutdown initiated by {username}.")
+                broadcast("SERVER: The server is shutting down now.", conn)
 
-            complete_msg = f"[{role.upper()}] {username}: {client_message}"
-            broadcast(complete_msg, conn)
+            elif action == "send_message":
+                complete_msg = f"[{role.upper()}] {username}: {client_message}"
+                print(complete_msg)
+                broadcast(complete_msg, conn)
 
         except Exception as e:
             print("Error occurred with client", address)
