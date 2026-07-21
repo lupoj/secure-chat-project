@@ -20,10 +20,13 @@ def initialize_client():
     
     username = input("Enter your username: ")
 
+    client_thread = threading.Thread(target=receive_messages, args=(client,))
+    client_thread.daemon = True
+    client_thread.start()
+
     initial_message = username + " has joined the chat."
     client.send(initial_message.encode())
-
-
+    
     while True:
 
         try:
@@ -37,9 +40,6 @@ def initialize_client():
         except Exception as e:
             print("Error occurred while sending message.")
             break
-
-    client_thread = threading.Thread(target=receive_messages, args=(client,))
-    client_thread.start()
 
     client.close()
     print("Disconnected from the server.")
