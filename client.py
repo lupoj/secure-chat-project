@@ -100,10 +100,19 @@ def initialize_client():
                 break
 
             if message:
-                send_json_packets(client, {
-                    "action": "send_message",
-                    "message": message
-                })
+
+                if message == "/users":
+                    send_json_packets(client, {"action": "view_users"})
+
+                elif message == "/shutdown":
+                    send_json_packets(client, {"action" : "shutdown"})
+                
+                else:
+                    send_json_packets(client, {
+                        "action": "send_message",
+                        "message": message
+                    })
+                    
         except Exception as e:
             print("Error occurred while sending message.")
             break
