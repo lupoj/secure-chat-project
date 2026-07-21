@@ -8,7 +8,6 @@ def initialize_server():
     port = 54321
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server.bind((host, port))
     server.listen()
 
@@ -39,16 +38,7 @@ def current_client(conn, address):
 
             print("Received message from", address, ":", message)
 
-            # Broadcast the message to all other clients
-            for i in clients:
-                if i != conn:
-                    try:
-                        i.send(message)
-                    except Exception as send_err:
-                        print(f"Failed to send to a client, removing them: {send_err}")
-                        if i in clients:
-                            clients.remove(i)
-                        
+            broadcast(message, conn)    
 
         except Exception as e:
             print("Error occurred with client", address)
@@ -58,6 +48,16 @@ def current_client(conn, address):
         clients.remove(conn)
     conn.close()
     print("Connection with client", address, "closed.")
+
+def broadcast(message, sender_socket):
+    for client in clients:
+        if client != sender_socket:
+            try:
+                client.send(message.encode())
+            except Exception as e:
+                print("Error occurred while broadcasting to a client.")
+                clients.remove(client)
+                client.close()
 
 if __name__ == "__main__":
     initialize_server()
