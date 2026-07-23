@@ -10,7 +10,7 @@ def send_json_packets(client, data):
 
 def receive_json_packets(client):
     try:
-        data = client.recv(1024).decode()
+        data = client.recv(8192).decode()
         return json.loads(data) if data else None
     except Exception:
         return None
@@ -104,8 +104,11 @@ def initialize_client():
                 if message == "/users":
                     send_json_packets(client, {"action": "view_users"})
 
+                elif message == "/logs":
+                    send_json_packets(client, {"action": "view_logs"})
+
                 elif message == "/shutdown":
-                    send_json_packets(client, {"action" : "shutdown"})
+                    send_json_packets(client, {"action" : "shutdown_server"})
                 
                 else:
                     send_json_packets(client, {
@@ -114,7 +117,7 @@ def initialize_client():
                     })
                     
         except Exception as e:
-            print("Error occurred while sending message.")
+            print("Error occurred while sending message.", e)
             break
 
     client.close()
@@ -124,7 +127,7 @@ def receive_messages(client):
     while True:
         try:
             packet = receive_json_packets(client)
-            if not packet:
+            if packet is None: # Used to be if not packet
                 print("Disconnected from the server.")
                 break
 
