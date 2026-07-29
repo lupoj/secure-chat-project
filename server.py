@@ -115,7 +115,7 @@ def current_client(conn, address):
         
         active_clients[username] = conn
 
-        logs(username, role, "login", "User logged in")
+        logs(username, role, "login", f"User logged in from {address}")
         new_user_message = f"SERVER: {username} [{role.upper()}] has joined the chat."
         broadcast(new_user_message, conn, sender_username="SERVER")
 
@@ -135,7 +135,7 @@ def current_client(conn, address):
                 logs(username, role, action, client_message)
 
                 if action == "logout":
-                    logs(username, role, "logout", "User logged out.")
+                    logs(username, role, "logout", f"User logged out from {address}.")
                     print(f"Client {address} ({username}) logged out.")
 
                     broadcast(f"SERVER: {username} has logged out.", conn, sender_username="SERVER")
@@ -145,12 +145,14 @@ def current_client(conn, address):
                     break
 
                 elif not has_permission(role, action):
+                    logs(username, role, action, f"User {address} attempted to perform ({action}) and was denied")
                     send_json_packets(conn, {"status": "ERROR", "message": f"Permission Denied: Role [{role.upper()}] cannot perform '{action}'."})
                     continue
 
                 elif action == "view_users":
                     
                     # users = ", ".join(active_clients.keys())
+                    logs(username, role, "view_users", f"Users viewed from {address}")
                     send_json_packets(conn, {
                         "status": "INFO",
                         "message": f"Connected users count: {len(active_clients)}"
@@ -160,7 +162,9 @@ def current_client(conn, address):
 
                     try:
                         if not os.path.exists("audit.log"):
+                            logs(username, role, "view_logs", f"User from {address} failed to open log file: File not found")
                             send_json_packets(conn, {"status": "INFO", "message": "No log file found."})
+
 
                         else:
 
@@ -169,6 +173,8 @@ def current_client(conn, address):
                             with open("audit.log", "r") as file:
                                 lines = file.readlines()
                                 recent_logs = "".join(lines[-10:]) if lines else "No logs available."
+
+                                logs(username, role, "view_logs", f"User from {address} successfully opened log file")
                                 send_json_packets(conn, {
                                     "status": "INFO",
                                     "message": f"\n-----AUDIT LOGS-----\n{recent_logs}"
@@ -183,7 +189,7 @@ def current_client(conn, address):
                     continue
 
                 elif action == "shutdown_server":
-                    logs(username, role, "shutdown", "Server shutdown initiated by user.")
+                    logs(username, role, "shutdown", f"Server shutdown initiated by user from {address}.")
                     print(f"[ADMIN ACTION] Server shutdown initiated by {username}.")
                     broadcast("SERVER: The server is shutting down now.", conn, sender_username="SERVER")
 
@@ -201,6 +207,7 @@ def current_client(conn, address):
 
                 elif action == "send_message":
                     complete_msg = f"[{role.upper()}] {username}: {client_message}"
+                    logs(username, role, "send_message", f"({complete_msg}) sent from {address}")
                     print(complete_msg)
                     broadcast(complete_msg, conn, sender_username=username)
 
