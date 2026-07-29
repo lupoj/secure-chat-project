@@ -3,6 +3,7 @@ import threading
 import json
 import datetime
 import os
+import ssl
 from auth import authenticate_user, register_user
 from security import has_permission
 
@@ -21,6 +22,9 @@ def initialize_server():
     host = "127.0.0.1"
     port = 54321
 
+    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    ssl_context.load_cert_chain(certfile="server.crt", keyfile="server.key")
+
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((host, port))
     server.listen()
@@ -29,10 +33,17 @@ def initialize_server():
 
     while True:
         connection, address = server.accept()
-        print("New connection from", address)
 
-        new_thread = threading.Thread(target=current_client, args=(connection, address))
-        new_thread.start()
+        try:
+            secure_connection = ssl_context.wrap_socket(connection, server_side = True)
+            print("New Secure TLS connection from", address)
+
+            new_thread = threading.Thread(target=current_client, args=(secure_connection, address))
+            new_thread.start()
+
+        except ssl.SSLError as e:
+            print(f"SSL Handshake failed for {address}: {e}")
+            connection.close()
 
 # Handle sending and receiving JSON packets
 def send_json_packets(conn, data):
