@@ -1,0 +1,133 @@
+[2026/07/23 11:24:53] USER: administrator - ROLE: login - ACTION: admin - MESSAGE: User logged in
+[2026/07/23 11:25:03] USER: administrator - ROLE: send_message - ACTION: admin - MESSAGE: hello
+[2026/07/23 11:25:26] USER: jacob - ROLE: login - ACTION: guest - MESSAGE: User logged in
+[2026/07/23 11:25:33] USER: jacob - ROLE: send_message - ACTION: guest - MESSAGE: hello there
+[2026/07/23 11:25:36] USER: jacob - ROLE: send_message - ACTION: guest - MESSAGE: my name is jacob
+[2026/07/23 11:25:45] USER: jacob - ROLE: view_users - ACTION: guest - MESSAGE: 
+[2026/07/23 11:25:51] USER: jacob - ROLE: shutdown - ACTION: guest - MESSAGE: 
+[2026/07/23 11:26:01] USER: administrator - ROLE: view_logs - ACTION: admin - MESSAGE: 
+[2026/07/23 11:27:22] USER: administrator - ROLE: send_message - ACTION: admin - MESSAGE: hello
+[2026/07/23 11:33:31] USER: administrator - ROLE: login - ACTION: admin - MESSAGE: User logged in
+[2026/07/23 11:33:53] USER: jacob - ROLE: login - ACTION: guest - MESSAGE: User logged in
+[2026/07/23 11:33:57] USER: jacob - ROLE: send_message - ACTION: guest - MESSAGE: hello
+[2026/07/23 11:34:24] USER: jacob - ROLE: view_logs - ACTION: guest - MESSAGE: 
+[2026/07/23 11:34:57] USER: administrator - ROLE: login - ACTION: admin - MESSAGE: User logged in
+[2026/07/23 11:34:59] USER: administrator - ROLE: send_message - ACTION: admin - MESSAGE: hello
+[2026/07/23 11:36:08] USER: administrator - ROLE: login - ACTION: admin - MESSAGE: User logged in
+[2026/07/23 11:36:23] USER: jacob - ROLE: login - ACTION: guest - MESSAGE: User logged in
+[2026/07/23 11:37:15] USER: administrator - ROLE: login - ACTION: admin - MESSAGE: User logged in
+[2026/07/23 11:37:25] USER: jacob - ROLE: login - ACTION: guest - MESSAGE: User logged in
+[2026/07/23 11:38:00] USER: administrator - ROLE: login - ACTION: admin - MESSAGE: User logged in
+[2026/07/23 11:38:24] USER: administrator - ROLE: send_message - ACTION: admin - MESSAGE: hello
+[2026/07/23 11:38:35] USER: jacob - ROLE: login - ACTION: guest - MESSAGE: User logged in
+[2026/07/23 11:38:37] USER: jacob - ROLE: send_message - ACTION: guest - MESSAGE: hello
+[2026/07/23 11:38:42] USER: jacob - ROLE: send_message - ACTION: guest - MESSAGE: how are you
+[2026/07/23 11:38:46] USER: administrator - ROLE: send_message - ACTION: admin - MESSAGE: im good
+[2026/07/23 11:38:55] USER: administrator - ROLE: send_message - ACTION: admin - MESSAGE: how are you
+[2026/07/23 11:41:13] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/23 11:41:23] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/23 11:44:32] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/23 11:44:42] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/23 11:44:47] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: hello
+[2026/07/23 11:44:51] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello there
+[2026/07/23 11:45:03] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: how are you
+[2026/07/23 11:45:06] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: great
+[2026/07/23 11:56:54] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/23 11:57:05] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/23 11:57:09] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: hello
+[2026/07/23 11:57:12] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: how are you
+[2026/07/23 11:57:15] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: great
+[2026/07/23 11:57:19] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/23 11:58:08] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/23 11:58:19] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/23 12:11:57] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/23 12:12:06] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/23 12:12:11] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: hello
+[2026/07/23 12:12:19] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: how are you
+[2026/07/23 12:12:32] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: im well
+[2026/07/23 12:12:40] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/23 12:26:33] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/23 12:26:44] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/23 12:26:44] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: jacob [GUEST] has joined the chat.
+[2026/07/23 12:26:47] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello
+[2026/07/23 12:26:47] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: [ADMIN] administrator: hello
+[2026/07/23 12:26:50] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: how are you
+[2026/07/23 12:26:50] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: [ADMIN] administrator: how are you
+[2026/07/23 12:26:54] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: im good
+[2026/07/23 12:26:54] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: [GUEST] jacob: im good
+[2026/07/23 12:26:57] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: how are you doing
+[2026/07/23 12:26:57] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: [GUEST] jacob: how are you doing
+[2026/07/23 12:27:01] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/23 12:27:08] USER: jacob - ROLE: guest - ACTION: view_logs - MESSAGE: 
+[2026/07/23 12:29:08] USER: jacob - ROLE: guest - ACTION: view_users - MESSAGE: 
+[2026/07/23 12:33:01] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/23 12:33:01] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: administrator [ADMIN] has joined the chat.
+[2026/07/23 12:33:09] USER: administrator - ROLE: admin - ACTION: view_users - MESSAGE: 
+[2026/07/23 12:33:15] USER: administrator - ROLE: admin - ACTION: shutdown - MESSAGE: 
+[2026/07/23 12:43:17] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/23 12:43:32] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/23 12:43:32] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: jacob [GUEST] has joined the chat.
+[2026/07/23 12:43:34] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: hello
+[2026/07/23 12:43:34] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: [GUEST] jacob: hello
+[2026/07/23 12:43:36] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: how are you
+[2026/07/23 12:43:36] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: [GUEST] jacob: how are you
+[2026/07/23 12:43:41] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: im good
+[2026/07/23 12:43:41] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: [ADMIN] administrator: im good
+[2026/07/23 12:44:27] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/23 12:44:27] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: Requested recent audit logs
+[2026/07/23 12:45:20] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/23 12:45:20] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: administrator [ADMIN] has joined the chat.
+[2026/07/23 12:45:23] USER: administrator - ROLE: admin - ACTION: shutdown_server - MESSAGE: 
+[2026/07/23 12:45:31] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello
+[2026/07/23 12:45:31] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: [ADMIN] administrator: hello
+[2026/07/23 12:45:34] USER: administrator - ROLE: admin - ACTION: shutdown_server - MESSAGE: 
+[2026/07/23 12:46:07] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/23 12:46:07] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: Requested recent audit logs
+[2026/07/23 12:52:38] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/23 12:52:40] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello
+[2026/07/23 12:52:43] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: my name is jacob
+[2026/07/23 12:52:44] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: what is yours
+[2026/07/23 12:52:47] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/23 12:56:59] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/23 12:57:00] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello
+[2026/07/23 12:57:03] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: my name is jacob
+[2026/07/23 12:57:05] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: how are you
+[2026/07/23 12:57:07] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/23 12:57:27] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/23 12:57:27] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: jacob [GUEST] has joined the chat.
+[2026/07/23 12:57:30] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: hello there
+[2026/07/23 12:57:30] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: [GUEST] jacob: hello there
+[2026/07/23 12:57:34] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: actually my name is jacob
+[2026/07/23 12:57:34] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: [GUEST] jacob: actually my name is jacob
+[2026/07/23 12:57:37] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: no mine is
+[2026/07/23 12:57:37] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: [ADMIN] administrator: no mine is
+[2026/07/23 12:57:38] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/23 12:57:48] USER: jacob - ROLE: guest - ACTION: view_logs - MESSAGE: 
+[2026/07/23 12:57:52] USER: administrator - ROLE: admin - ACTION: shutdown_server - MESSAGE: 
+[2026/07/23 12:57:52] USER: administrator - ROLE: admin - ACTION: shutdown - MESSAGE: Server shutdown initiated by user.
+[2026/07/23 12:57:52] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: The server is shutting down now.
+[2026/07/23 12:57:52] USER: SERVER - ROLE: system - ACTION: server_shutdown - MESSAGE: Server process terminated.
+[2026/07/28 11:20:31] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/28 11:21:31] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/28 11:21:34] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello
+[2026/07/28 11:22:00] USER: demo - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/28 11:22:00] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: demo [GUEST] has joined the chat.
+[2026/07/28 11:22:04] USER: demo - ROLE: guest - ACTION: send_message - MESSAGE: hello
+[2026/07/28 11:22:04] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: [GUEST] demo: hello
+[2026/07/28 11:22:10] USER: demo - ROLE: guest - ACTION: view_users - MESSAGE: 
+[2026/07/28 11:22:14] USER: demo - ROLE: guest - ACTION: view_logs - MESSAGE: 
+[2026/07/28 11:22:20] USER: demo - ROLE: guest - ACTION: shutdown_server - MESSAGE: 
+[2026/07/28 11:22:26] USER: administrator - ROLE: admin - ACTION: view_users - MESSAGE: 
+[2026/07/28 11:22:29] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/28 11:22:44] USER: administrator - ROLE: admin - ACTION: shutdown_server - MESSAGE: 
+[2026/07/28 11:22:44] USER: administrator - ROLE: admin - ACTION: shutdown - MESSAGE: Server shutdown initiated by user.
+[2026/07/28 11:22:44] USER: demo - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: The server is shutting down now.
+[2026/07/28 11:22:44] USER: SERVER - ROLE: system - ACTION: server_shutdown - MESSAGE: Server process terminated.
+[2026/07/29 12:53:46] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/29 12:53:52] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello
+[2026/07/29 12:54:20] USER: demo - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/29 12:54:20] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: demo [GUEST] has joined the chat.
+[2026/07/29 12:54:24] USER: demo - ROLE: guest - ACTION: send_message - MESSAGE: hello
+[2026/07/29 12:54:24] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: [GUEST] demo: hello
+[2026/07/29 12:54:26] USER: demo - ROLE: guest - ACTION: view_logs - MESSAGE: 
+[2026/07/29 12:54:32] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
