@@ -131,3 +131,53 @@
 [2026/07/29 12:54:24] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: [GUEST] demo: hello
 [2026/07/29 12:54:26] USER: demo - ROLE: guest - ACTION: view_logs - MESSAGE: 
 [2026/07/29 12:54:32] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/29 13:33:47] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/29 13:34:36] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/29 14:13:00] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/29 14:13:06] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: hello
+[2026/07/29 14:13:27] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/29 14:13:27] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: administrator [ADMIN] has joined the chat.
+[2026/07/29 14:13:34] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello
+[2026/07/29 14:13:34] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: [ADMIN] administrator: hello
+[2026/07/29 14:13:40] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: how are you
+[2026/07/29 14:13:40] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: [ADMIN] administrator: how are you
+[2026/07/29 14:13:42] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/29 14:13:47] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: yes
+[2026/07/29 14:13:47] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: [GUEST] jacob: yes
+[2026/07/29 14:13:51] USER: administrator - ROLE: admin - ACTION: view_users - MESSAGE: 
+[2026/07/29 14:13:55] USER: jacob - ROLE: guest - ACTION: view_logs - MESSAGE: 
+[2026/07/29 14:13:57] USER: jacob - ROLE: guest - ACTION: view_users - MESSAGE: 
+[2026/07/29 14:14:01] USER: jacob - ROLE: guest - ACTION: shutdown_server - MESSAGE: 
+[2026/07/29 14:14:07] USER: jacob - ROLE: guest - ACTION: logout - MESSAGE: 
+[2026/07/29 14:14:07] USER: jacob - ROLE: guest - ACTION: logout - MESSAGE: User logged out.
+[2026/07/29 14:14:07] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: jacob has logged out.
+[2026/07/29 14:14:37] USER: administrator - ROLE: admin - ACTION: logout - MESSAGE: 
+[2026/07/29 14:14:37] USER: administrator - ROLE: admin - ACTION: logout - MESSAGE: User logged out.
+[2026/07/29 14:26:54] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/29 14:26:58] USER: jacob - ROLE: guest - ACTION: logout - MESSAGE: 
+[2026/07/29 14:26:58] USER: jacob - ROLE: guest - ACTION: logout - MESSAGE: User logged out.
+[2026/07/29 14:27:08] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/29 14:27:34] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in
+[2026/07/29 14:27:34] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: administrator [ADMIN] has joined the chat.
+[2026/07/29 14:27:37] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello
+[2026/07/29 14:27:37] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: [ADMIN] administrator: hello
+[2026/07/29 14:27:42] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: hello how are you
+[2026/07/29 14:27:42] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: [GUEST] jacob: hello how are you
+[2026/07/29 14:27:45] USER: jacob - ROLE: guest - ACTION: view_logs - MESSAGE: 
+[2026/07/29 14:27:48] USER: jacob - ROLE: guest - ACTION: view_users - MESSAGE: 
+[2026/07/29 14:27:51] USER: jacob - ROLE: guest - ACTION: shutdown_server - MESSAGE: 
+[2026/07/29 14:27:59] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/29 14:28:03] USER: administrator - ROLE: admin - ACTION: view_users - MESSAGE: 
+[2026/07/29 14:29:48] USER: administrator - ROLE: admin - ACTION: logout - MESSAGE: 
+[2026/07/29 14:29:48] USER: administrator - ROLE: admin - ACTION: logout - MESSAGE: User logged out.
+[2026/07/29 14:29:48] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: administrator has logged out.
+[2026/07/29 14:29:53] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: hello
+[2026/07/29 14:30:01] USER: jacob - ROLE: guest - ACTION: logout - MESSAGE: 
+[2026/07/29 14:30:01] USER: jacob - ROLE: guest - ACTION: logout - MESSAGE: User logged out.
+[2026/07/29 14:43:41] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/29 14:43:44] USER: jacob - ROLE: guest - ACTION: logout - MESSAGE: 
+[2026/07/29 14:43:44] USER: jacob - ROLE: guest - ACTION: logout - MESSAGE: User logged out.
+[2026/07/29 14:43:52] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/29 14:54:15] USER: hello - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 29686)
+[2026/07/29 14:54:59] USER: jacob2 - ROLE: guest - ACTION: register_success - MESSAGE: New user registered from ('127.0.0.1', 29686)
+[2026/07/29 14:55:36] USER: jacob2 - ROLE: guest - ACTION: login - MESSAGE: User logged in
