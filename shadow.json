@@ -1,0 +1,17 @@
+{
+    "administrator": {
+        "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$cj2U8/b2Io6FzY4RiMfRyQ$MXxzY/wtW0UuODffrjKFvqe7JtYGf9gzpSPV01y0osg"
+    },
+    "manager": {
+        "password_hash": "$argon2id$v=19$m=64,t=3,p=4$RHR0S1AwbnRvdHNhZWp4TQ$6Md3PJTrOkKQZXPtBd7+JQ"
+    },
+    "user": {
+        "password_hash": "$argon2id$v=19$m=64,t=3,p=4$ZVVsTERCTDJLdGZCUzlWeg$Vwvu/B8p5LQpS5x9aq5lgw"
+    },
+    "jacob": {
+        "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$waG9/vzxKfZszjpKG/SfeQ$L5QEYomS0BpwR6AwNVl5De0FRg+aBooMrJ9ELTvIt6M"
+    },
+    "jacob2": {
+        "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$5IyAiCjjtZWywcIURoiFSg$xW/ITPARgNHheVCq8x2y036mi/S3VEyVE0sO5piusrk"
+    }
+}
