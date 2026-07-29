@@ -1,6 +1,8 @@
 import socket
 import threading
 import json
+import getpass
+import ssl
 
 def send_json_packets(client, data):
     try:
@@ -38,7 +40,7 @@ def auth_handshake(client):
 
             action = "login" if choice == "1" else "register"
             username = input("Username: ").strip()
-            password = input("Password: ").strip()
+            password = getpass.getpass("Password: ").strip()
 
             # Send authentication request payload
             send_json_packets(client, {
@@ -68,25 +70,33 @@ def initialize_client():
     host = "127.0.0.1"
     port = 54321
 
+    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+
+    ssl_context.check_hostname = False
+    ssl_context.verify_mode = ssl.CERT_NONE
+
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-        client.connect((host, port))
-        print("Connected to the server at", host, "on port", port)
+        secure_client = ssl_context.wrap_socket(client, server_hostname = host)
 
-        client.settimeout(None)
-        client.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+        secure_client.connect((host, port))
+        print("Securely connected to the server via TLS at", host, "on port", port)
+        print(f"Active Cipher Suite: {secure_client.cipher()}")
 
-    except Exception as connect_error:
-        print("Error:", connect_error)
+        secure_client.settimeout(None)
+        secure_client.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+
+    except Exception as e:
+        print(f"Error connecting via TLS: {e}")
         return
     
-    auth_success = auth_handshake(client)
+    auth_success = auth_handshake(secure_client)
     if not auth_success:
-        client.close()
+        secure_client.close()
         return
 
-    client_thread = threading.Thread(target=receive_messages, args=(client,))
+    client_thread = threading.Thread(target=receive_messages, args=(secure_client,))
     client_thread.daemon = True
     client_thread.start()
 
@@ -102,16 +112,16 @@ def initialize_client():
             if message:
 
                 if message == "/users":
-                    send_json_packets(client, {"action": "view_users"})
+                    send_json_packets(secure_client, {"action": "view_users"})
 
                 elif message == "/logs":
-                    send_json_packets(client, {"action": "view_logs"})
+                    send_json_packets(secure_client, {"action": "view_logs"})
 
                 elif message == "/shutdown":
-                    send_json_packets(client, {"action" : "shutdown_server"})
+                    send_json_packets(secure_client, {"action" : "shutdown_server"})
                 
                 else:
-                    send_json_packets(client, {
+                    send_json_packets(secure_client, {
                         "action": "send_message",
                         "message": message
                     })
@@ -120,7 +130,7 @@ def initialize_client():
             print("Error occurred while sending message.", e)
             break
 
-    client.close()
+    secure_client.close()
     print("Disconnected from the server.")
 
 def receive_messages(client):
