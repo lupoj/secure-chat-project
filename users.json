@@ -1,0 +1,22 @@
+{
+    "administrator": {
+        "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$6ELin8254z3EwpiNSiQ/7Q$HdDs1hf3hm+6KsmUIyaJsKSI6Y14vLMwybOk27TZw2U",
+        "role": "admin"
+    },
+    "manager": {
+        "password_hash": "$argon2id$v=19$m=64,t=3,p=4$RHR0S1AwbnRvdHNhZWp4TQ$6Md3PJTrOkKQZXPtBd7+JQ",
+        "role": "moderator"
+    },
+    "user": {
+        "password_hash": "$argon2id$v=19$m=64,t=3,p=4$ZVVsTERCTDJLdGZCUzlWeg$Vwvu/B8p5LQpS5x9aq5lgw",
+        "role": "guest"
+    },
+    "jacob": {
+        "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$3eqftMXqw8wAvyMMTNzbTA$2HzaMuZ07eiEHyMfqWQsjGBkV0F3AWbBLrrqUGWgv8Y",
+        "role": "guest"
+    },
+    "demo": {
+        "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$8zyF6Jo2eSIYfNzkY3nUiQ$PQlM1laTTq5BuRt5YJs4dcNR4Y2JzWndNuERY0FLYz8",
+        "role": "guest"
+    }
+}
