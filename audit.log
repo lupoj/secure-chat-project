@@ -181,3 +181,18 @@
 [2026/07/29 14:54:15] USER: hello - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 29686)
 [2026/07/29 14:54:59] USER: jacob2 - ROLE: guest - ACTION: register_success - MESSAGE: New user registered from ('127.0.0.1', 29686)
 [2026/07/29 14:55:36] USER: jacob2 - ROLE: guest - ACTION: login - MESSAGE: User logged in
+[2026/07/29 15:23:51] USER: hello - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 49196)
+[2026/07/29 15:24:00] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 49196)
+[2026/07/29 15:24:06] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: hello
+[2026/07/29 15:24:08] USER: jacob - ROLE: guest - ACTION: logout - MESSAGE: 
+[2026/07/29 15:24:08] USER: jacob - ROLE: guest - ACTION: logout - MESSAGE: User logged out from ('127.0.0.1', 49196).
+[2026/07/29 15:24:16] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 49196)
+[2026/07/29 15:24:20] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello there
+[2026/07/29 15:24:23] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: i am an admin
+[2026/07/29 15:24:25] USER: administrator - ROLE: admin - ACTION: view_users - MESSAGE: 
+[2026/07/29 15:24:25] USER: administrator - ROLE: admin - ACTION: view_users - MESSAGE: Users viewed from ('127.0.0.1', 49196)
+[2026/07/29 15:24:30] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/29 15:24:30] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: User from ('127.0.0.1', 49196) successfully opened log file
+[2026/07/29 15:24:53] USER: administrator - ROLE: admin - ACTION: shutdown_server - MESSAGE: 
+[2026/07/29 15:24:53] USER: administrator - ROLE: admin - ACTION: shutdown - MESSAGE: Server shutdown initiated by user from ('127.0.0.1', 49196).
+[2026/07/29 15:24:53] USER: SERVER - ROLE: system - ACTION: server_shutdown - MESSAGE: Server process terminated.
