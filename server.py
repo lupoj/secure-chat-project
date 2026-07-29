@@ -82,6 +82,9 @@ def handle_auth(conn, address):
                 return username, role
             else:
                 send_json_packets(conn, {"status": "AUTH_FAIL", "message": "Invalid username or password."})
+                safe_username = username if username else "UNKNOWN"
+
+                logs(safe_username, "unauthenticated", "login_failed", f"Failed login attempt from {address}")
 
         elif action == "register":
             success, message = register_user(username, password)
@@ -89,8 +92,12 @@ def handle_auth(conn, address):
             if success:
                 send_json_packets(conn, {"status": "REG_SUCCESS", "message": message})
                 print("Client", address, "registered as", username)
+                logs(username, "guest", "register_success", f"New user registered from {address}")
             else:
                 send_json_packets(conn, {"status": "REG_FAIL", "message": message})
+
+                safe_username = username if username else "UNKOWN"
+                logs(safe_username, "unauthenticated", "register_failed", f"Registration failed ({message}) from {address}")
 
 def current_client(conn, address):
     print("Handling client", address)
@@ -98,99 +105,116 @@ def current_client(conn, address):
     conn.settimeout(None)
     conn.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
 
-    username, role = handle_auth(conn, address)
-
-    if not username:
-        conn.close()
-        print("Connection with client", address, "closed due to authentication failure.")
-        return
-    
-    active_clients[username] = conn
-
-    logs(username, role, "login", "User logged in")
-    new_user_message = f"SERVER: {username} [{role.upper()}] has joined the chat."
-    broadcast(new_user_message, conn, sender_username="SERVER")
-
     while True:
-        try:
-            json_packet = receive_json_packets(conn)
+        username, role = handle_auth(conn, address)
 
-            if not json_packet:
-                print("Client", address, "disconnected from the server.")
+        if not username:
+            conn.close()
+            print("Connection with client", address, "closed due to authentication failure.")
+            return
+        
+        active_clients[username] = conn
+
+        logs(username, role, "login", "User logged in")
+        new_user_message = f"SERVER: {username} [{role.upper()}] has joined the chat."
+        broadcast(new_user_message, conn, sender_username="SERVER")
+
+        logout_flag = False
+
+        while True:
+            try:
+                json_packet = receive_json_packets(conn)
+
+                if not json_packet:
+                    print("Client", address, f"({username}) disconnected from the server.")
+                    break
+
+                action = json_packet.get("action", "send_message")
+                client_message = json_packet.get("message", "")
+
+                logs(username, role, action, client_message)
+
+                if action == "logout":
+                    logs(username, role, "logout", "User logged out.")
+                    print(f"Client {address} ({username}) logged out.")
+
+                    broadcast(f"SERVER: {username} has logged out.", conn, sender_username="SERVER")
+
+                    send_json_packets(conn, {"status": "LOGOUT_SUCCESS", "message": "Logged out successfully."})
+                    logout_flag = True
+                    break
+
+                elif not has_permission(role, action):
+                    send_json_packets(conn, {"status": "ERROR", "message": f"Permission Denied: Role [{role.upper()}] cannot perform '{action}'."})
+                    continue
+
+                elif action == "view_users":
+                    
+                    # users = ", ".join(active_clients.keys())
+                    send_json_packets(conn, {
+                        "status": "INFO",
+                        "message": f"Connected users count: {len(active_clients)}"
+                    })
+
+                elif action == "view_logs":
+
+                    try:
+                        if not os.path.exists("audit.log"):
+                            send_json_packets(conn, {"status": "INFO", "message": "No log file found."})
+
+                        else:
+
+                            #file = open("audit.log", "r")
+                            #try:
+                            with open("audit.log", "r") as file:
+                                lines = file.readlines()
+                                recent_logs = "".join(lines[-10:]) if lines else "No logs available."
+                                send_json_packets(conn, {
+                                    "status": "INFO",
+                                    "message": f"\n-----AUDIT LOGS-----\n{recent_logs}"
+                                })
+                            #finally:
+                                #file.close()
+
+                    except Exception as read_err:
+                        print(f"Error reading audit.log for {username}: {read_err}")
+                        send_json_packets(conn, {"status": "ERROR", "message": "No log file found."})
+                
+                    continue
+
+                elif action == "shutdown_server":
+                    logs(username, role, "shutdown", "Server shutdown initiated by user.")
+                    print(f"[ADMIN ACTION] Server shutdown initiated by {username}.")
+                    broadcast("SERVER: The server is shutting down now.", conn, sender_username="SERVER")
+
+                    logs("SERVER", "system", "server_shutdown", "Server process terminated.")
+
+                    for active_user, client in list(active_clients.items()):
+                        try:
+                            client.close()
+                        except Exception:
+                            pass
+
+                    active_clients.clear()
+                    os._exit(0)
+
+
+                elif action == "send_message":
+                    complete_msg = f"[{role.upper()}] {username}: {client_message}"
+                    print(complete_msg)
+                    broadcast(complete_msg, conn, sender_username=username)
+
+            except Exception as e:
+                print("Error occurred with client", address)
                 break
 
-            action = json_packet.get("action", "send_message")
-            client_message = json_packet.get("message", "")
+        if username in active_clients:
+            del active_clients[username]
 
-            logs(username, role, action, client_message)
-
-            if not has_permission(role, action):
-                send_json_packets(conn, {"status": "ERROR", "message": f"Permission Denied: Role [{role.upper()}] cannot perform '{action}'."})
-                continue
-
-            elif action == "view_users":
-                
-                users = ", ".join(active_clients.keys())
-                send_json_packets(conn, {
-                    "status": "INFO",
-                    "message": f"Connected users count: {len(active_clients)}"
-                })
-
-            elif action == "view_logs":
-
-                try:
-                    if not os.path.exists("audit.log"):
-                        send_json_packets(conn, {"status": "INFO", "message": "No log file found."})
-
-                    else:
-
-                        file = open("audit.log", "r")
-                        try:
-                            lines = file.readlines()
-                            recent_logs = "".join(lines[-10:]) if lines else "No logs available."
-                            send_json_packets(conn, {
-                                "status": "INFO",
-                                "message": f"\n-----AUDIT LOGS-----\n{recent_logs}"
-                            })
-                        finally:
-                            file.close()
-
-                except Exception as read_err:
-                    print(f"Error reading audit.log for {username}: {read_err}")
-                    send_json_packets(conn, {"status": "ERROR", "message": "No log file found."})
-            
-                continue
-
-            elif action == "shutdown_server":
-                logs(username, role, "shutdown", "Server shutdown initiated by user.")
-                print(f"[ADMIN ACTION] Server shutdown initiated by {username}.")
-                broadcast("SERVER: The server is shutting down now.", conn, sender_username="SERVER")
-
-                logs("SERVER", "system", "server_shutdown", "Server process terminated.")
-
-                for active_user, client in list(active_clients.items()):
-                    try:
-                        client.close()
-                    except Exception:
-                        pass
-
-                active_clients.clear()
-
-
-            elif action == "send_message":
-                complete_msg = f"[{role.upper()}] {username}: {client_message}"
-                print(complete_msg)
-                broadcast(complete_msg, conn, sender_username=username)
-
-        except Exception as e:
-            print("Error occurred with client", address)
-            break
-
-    if username in active_clients:
-        del active_clients[username]
-    conn.close()
-
-    print("Connection with client", address, "closed.")
+        if not logout_flag:
+            conn.close()
+            print("Connection with client", address, "has been closed.")
+            return
 
 def broadcast(message, sender_socket, sender_username="SERVER"):
     json_packet = {"status": "CHAT_MSG", "message": message}
