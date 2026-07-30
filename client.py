@@ -56,18 +56,18 @@ def auth_handshake(client):
         elif status == "AUTH_SUCCESS":
             user = packet.get("username")
             role = packet.get("role", "guest")
-            print(f"\n✅ Success! Logged in as '{user}' [{role.upper()}]")
+            print(f"\nLogin Successful: Logged in as '{user}' [{role.upper()}]")
             print("="*35 + "\n")
             return True
 
         elif status == "AUTH_FAIL":
-            print(f"\n❌ Login Failed: {packet.get('message')}")
+            print(f"\nLogin Failed: {packet.get('message')}")
 
         elif status == "REG_SUCCESS":
-            print(f"\n✅ Registration Successful! {packet.get('message')}")
+            print(f"\nRegistration Successful: {packet.get('message')}")
 
         elif status == "REG_FAIL":
-            print(f"\n❌ Registration Failed: {packet.get('message')}")
+            print(f"\nRegistration Failed: {packet.get('message')}")
 
 
 def initialize_client():
