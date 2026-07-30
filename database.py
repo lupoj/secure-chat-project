@@ -9,11 +9,7 @@ SHADOW_FILE = "shadow.json"
 DEFAULT_TIMESTAMP = "2026-01-01T00:00:00Z"
 
 # Default users with hashed passwords and roles
-# Passwords in plaintext
-#
-# administrator: Password1!
-# manager: Password2!
-# user: Password3!
+
 DEFAULT_USERS = {
     "administrator": {
         "username": "administrator",
