@@ -196,3 +196,26 @@
 [2026/07/29 15:24:53] USER: administrator - ROLE: admin - ACTION: shutdown_server - MESSAGE: 
 [2026/07/29 15:24:53] USER: administrator - ROLE: admin - ACTION: shutdown - MESSAGE: Server shutdown initiated by user from ('127.0.0.1', 49196).
 [2026/07/29 15:24:53] USER: SERVER - ROLE: system - ACTION: server_shutdown - MESSAGE: Server process terminated.
+[2026/07/30 11:02:45] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 55224)
+[2026/07/30 11:02:49] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: hello
+[2026/07/30 11:02:49] USER: jacob - ROLE: guest - ACTION: send_message - MESSAGE: ([GUEST] jacob: hello) sent from ('127.0.0.1', 55224)
+[2026/07/30 11:03:12] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 61121)
+[2026/07/30 11:03:12] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: administrator [ADMIN] has joined the chat.
+[2026/07/30 11:03:18] USER: jacob - ROLE: guest - ACTION: view_users - MESSAGE: 
+[2026/07/30 11:03:18] USER: jacob - ROLE: guest - ACTION: view_users - MESSAGE: Users viewed from ('127.0.0.1', 55224)
+[2026/07/30 11:03:24] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello
+[2026/07/30 11:03:24] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: ([ADMIN] administrator: hello) sent from ('127.0.0.1', 61121)
+[2026/07/30 11:03:24] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: [ADMIN] administrator: hello
+[2026/07/30 11:03:32] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/30 11:03:32] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: User from ('127.0.0.1', 61121) successfully opened log file
+[2026/07/30 11:03:39] USER: administrator - ROLE: admin - ACTION: shutdown_server - MESSAGE: 
+[2026/07/30 11:03:39] USER: administrator - ROLE: admin - ACTION: shutdown - MESSAGE: Server shutdown initiated by user from ('127.0.0.1', 61121).
+[2026/07/30 11:03:39] USER: jacob - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: The server is shutting down now.
+[2026/07/30 11:03:39] USER: SERVER - ROLE: system - ACTION: server_shutdown - MESSAGE: Server process terminated.
+[2026/07/30 11:05:21] USER: jack - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 21869)
+[2026/07/30 11:05:36] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 21869)
+[2026/07/30 11:05:44] USER: jacob - ROLE: guest - ACTION: logout - MESSAGE: 
+[2026/07/30 11:05:44] USER: jacob - ROLE: guest - ACTION: logout - MESSAGE: User logged out from ('127.0.0.1', 21869).
+[2026/07/30 11:05:51] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 21869)
+[2026/07/30 11:05:59] USER: jacob - ROLE: guest - ACTION: view_logs - MESSAGE: 
+[2026/07/30 11:05:59] USER: jacob - ROLE: guest - ACTION: view_logs - MESSAGE: User ('127.0.0.1', 21869) attempted to perform (view_logs) and was denied
