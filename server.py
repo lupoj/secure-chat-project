@@ -20,12 +20,13 @@ def logs(username, role, action, message=""):
 # Initialize the server and listen for incoming connections
 def initialize_server():
     host = "127.0.0.1"
-    port = 54321
+    port = 12346
 
     ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
     ssl_context.load_cert_chain(certfile="server.crt", keyfile="server.key")
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server.bind((host, port))
     server.listen()
 
