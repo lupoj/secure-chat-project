@@ -72,7 +72,7 @@ def auth_handshake(client):
 
 def initialize_client():
     host = "127.0.0.1"
-    port = 54321
+    port = 12346
 
     ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
     ssl_context.check_hostname = False
