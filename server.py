@@ -75,17 +75,17 @@ def handle_auth(conn, address):
         password = request.get("password", "").strip()
 
         if action == "login":
-            success, role = authenticate_user(username, password)
+            success, role, message = authenticate_user(username, password)
 
             if success:
                 send_json_packets(conn, {"status": "AUTH_SUCCESS", "username": username, "role": role})
                 print("Client", address, "authenticated as", username, "with role", role)
                 return username, role
             else:
-                send_json_packets(conn, {"status": "AUTH_FAIL", "message": "Invalid username or password."})
+                send_json_packets(conn, {"status": "AUTH_FAIL", "message": message})
                 safe_username = username if username else "UNKNOWN"
 
-                logs(safe_username, "unauthenticated", "login_failed", f"Failed login attempt from {address}")
+                logs(safe_username, "unauthenticated", "login_failed", f"Failed login attempt from {address} - Reason: {message}")
 
         elif action == "register":
             success, message = register_user(username, password)
