@@ -13,5 +13,11 @@
     },
     "jacob2": {
         "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$5IyAiCjjtZWywcIURoiFSg$xW/ITPARgNHheVCq8x2y036mi/S3VEyVE0sO5piusrk"
+    },
+    "demo": {
+        "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$JU8c7WPSXPpmAI/x+ceNNQ$anRCmcgGXG0Z6nPspL3lFsrC/NAFR5YFl1EtlogsKPM"
+    },
+    "demo1": {
+        "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$PyBmIg/EVHhawpFR4UcxuQ$S63SCYlUZnz7BlKYDDjEuXaQH94BRlBLCNmETnqGviA"
     }
 }

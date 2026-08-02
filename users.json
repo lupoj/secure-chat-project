@@ -5,7 +5,7 @@
         "display_name": "System Administrator",
         "role": "admin",
         "created_at": "2026-01-01T00:00:00Z",
-        "last_login": "2026-07-30T15:03:12.557927"
+        "last_login": "2026-07-30T19:35:19.740711"
     },
     "manager": {
         "username": "manager",
@@ -22,5 +22,21 @@
         "role": "guest",
         "created_at": "2026-01-01T00:00:00Z",
         "last_login": null
+    },
+    "demo": {
+        "username": "demo",
+        "user_id": "d574b2fa",
+        "display_name": "demo",
+        "role": "guest",
+        "created_at": "2026-07-30T19:33:58.169217",
+        "last_login": null
+    },
+    "demo1": {
+        "username": "demo1",
+        "user_id": "8439281e",
+        "display_name": "demo1",
+        "role": "guest",
+        "created_at": "2026-07-30T19:35:00.052033",
+        "last_login": "2026-07-30T19:35:08.574351"
     }
 }

@@ -219,3 +219,57 @@
 [2026/07/30 11:05:51] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 21869)
 [2026/07/30 11:05:59] USER: jacob - ROLE: guest - ACTION: view_logs - MESSAGE: 
 [2026/07/30 11:05:59] USER: jacob - ROLE: guest - ACTION: view_logs - MESSAGE: User ('127.0.0.1', 21869) attempted to perform (view_logs) and was denied
+[2026/07/30 11:33:07] USER: jacob - ROLE: guest - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 40132)
+[2026/07/30 13:55:20] USER: jacob - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 1969)
+[2026/07/30 14:57:40] USER: administrator - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 2971) - Reason: Incorrect username or password. (2 attempt(s) left before account lockout)
+[2026/07/30 14:57:50] USER: administrator - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 2971) - Reason: Incorrect username or password. (1 attempt(s) left before account lockout)
+[2026/07/30 14:57:59] USER: administrator - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 2971) - Reason: Incorrect password: Too many failed attempts. Account is locked for 10 seconds.
+[2026/07/30 14:58:06] USER: administrator - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 2971) - Reason: You are locked out. Try again in 2 seconds.
+[2026/07/30 14:58:19] USER: administrator - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 2971) - Reason: Incorrect password: Too many failed attempts. Account is locked for 30 seconds.
+[2026/07/30 14:58:30] USER: administrator - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 2971) - Reason: You are locked out. Try again in 18 seconds.
+[2026/07/30 15:05:19] USER: jacob - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 36037) - Reason: Incorrect username or password.
+[2026/07/30 15:05:37] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 36037)
+[2026/07/30 15:05:42] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello
+[2026/07/30 15:05:42] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: ([ADMIN] administrator: hello) sent from ('127.0.0.1', 36037)
+[2026/07/30 15:05:52] USER: administrator - ROLE: admin - ACTION: logout - MESSAGE: 
+[2026/07/30 15:05:52] USER: administrator - ROLE: admin - ACTION: logout - MESSAGE: User logged out from ('127.0.0.1', 36037).
+[2026/07/30 15:06:05] USER: administrator - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 36037) - Reason: Incorrect username or password. (2 attempt(s) left before account lockout)
+[2026/07/30 15:06:17] USER: administrator - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 36037) - Reason: Incorrect username or password. (1 attempt(s) left before account lockout)
+[2026/07/30 15:06:25] USER: administrator - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 36037) - Reason: Incorrect password: Too many failed attempts. Account is locked for 10 seconds.
+[2026/07/30 15:06:32] USER: jacob - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 36037) - Reason: Incorrect username or password.
+[2026/07/30 15:06:40] USER: administrator - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 36037) - Reason: Incorrect password: Too many failed attempts. Account is locked for 30 seconds.
+[2026/07/30 15:06:44] USER: jacob - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 36037) - Reason: Incorrect username or password.
+[2026/07/30 15:06:52] USER: administrator - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 36037) - Reason: You are locked out. Try again in 18 seconds.
+[2026/07/30 15:30:45] USER: jacob - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 61751) - Reason: Incorrect username or password.
+[2026/07/30 15:30:58] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 61751)
+[2026/07/30 15:32:14] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 44062)
+[2026/07/30 15:32:20] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello
+[2026/07/30 15:32:20] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: ([ADMIN] administrator: hello) sent from ('127.0.0.1', 44062)
+[2026/07/30 15:32:24] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: how are you
+[2026/07/30 15:32:24] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: ([ADMIN] administrator: how are you) sent from ('127.0.0.1', 44062)
+[2026/07/30 15:33:58] USER: demo - ROLE: guest - ACTION: register_success - MESSAGE: New user registered from ('127.0.0.1', 32395)
+[2026/07/30 15:34:09] USER: demo - ROLE: unauthenticated - ACTION: login_failed - MESSAGE: Failed login attempt from ('127.0.0.1', 32395) - Reason: Incorrect username or password. (2 attempt(s) left before account lockout)
+[2026/07/30 15:35:00] USER: demo1 - ROLE: guest - ACTION: register_success - MESSAGE: New user registered from ('127.0.0.1', 10792)
+[2026/07/30 15:35:08] USER: demo1 - ROLE: guest - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 10792)
+[2026/07/30 15:35:19] USER: administrator - ROLE: admin - ACTION: login - MESSAGE: User logged in from ('127.0.0.1', 10796)
+[2026/07/30 15:35:19] USER: demo1 - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: administrator [ADMIN] has joined the chat.
+[2026/07/30 15:35:22] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: hello
+[2026/07/30 15:35:22] USER: administrator - ROLE: admin - ACTION: send_message - MESSAGE: ([ADMIN] administrator: hello) sent from ('127.0.0.1', 10796)
+[2026/07/30 15:35:22] USER: demo1 - ROLE: user - ACTION: receive_message - MESSAGE: [ADMIN] administrator: hello
+[2026/07/30 15:35:26] USER: demo1 - ROLE: guest - ACTION: send_message - MESSAGE: hi
+[2026/07/30 15:35:26] USER: demo1 - ROLE: guest - ACTION: send_message - MESSAGE: ([GUEST] demo1: hi) sent from ('127.0.0.1', 10792)
+[2026/07/30 15:35:26] USER: administrator - ROLE: user - ACTION: receive_message - MESSAGE: [GUEST] demo1: hi
+[2026/07/30 15:35:31] USER: demo1 - ROLE: guest - ACTION: view_users - MESSAGE: 
+[2026/07/30 15:35:31] USER: demo1 - ROLE: guest - ACTION: view_users - MESSAGE: Users viewed from ('127.0.0.1', 10792)
+[2026/07/30 15:35:35] USER: demo1 - ROLE: guest - ACTION: view_logs - MESSAGE: 
+[2026/07/30 15:35:35] USER: demo1 - ROLE: guest - ACTION: view_logs - MESSAGE: User ('127.0.0.1', 10792) attempted to perform (view_logs) and was denied
+[2026/07/30 15:35:38] USER: demo1 - ROLE: guest - ACTION: shutdown_server - MESSAGE: 
+[2026/07/30 15:35:38] USER: demo1 - ROLE: guest - ACTION: shutdown_server - MESSAGE: User ('127.0.0.1', 10792) attempted to perform (shutdown_server) and was denied
+[2026/07/30 15:35:41] USER: administrator - ROLE: admin - ACTION: view_users - MESSAGE: 
+[2026/07/30 15:35:41] USER: administrator - ROLE: admin - ACTION: view_users - MESSAGE: Users viewed from ('127.0.0.1', 10796)
+[2026/07/30 15:35:43] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: 
+[2026/07/30 15:35:43] USER: administrator - ROLE: admin - ACTION: view_logs - MESSAGE: User from ('127.0.0.1', 10796) successfully opened log file
+[2026/07/30 15:35:51] USER: administrator - ROLE: admin - ACTION: shutdown_server - MESSAGE: 
+[2026/07/30 15:35:51] USER: administrator - ROLE: admin - ACTION: shutdown - MESSAGE: Server shutdown initiated by user from ('127.0.0.1', 10796).
+[2026/07/30 15:35:51] USER: demo1 - ROLE: user - ACTION: receive_message - MESSAGE: SERVER: The server is shutting down now.
+[2026/07/30 15:35:51] USER: SERVER - ROLE: system - ACTION: server_shutdown - MESSAGE: Server process terminated.
